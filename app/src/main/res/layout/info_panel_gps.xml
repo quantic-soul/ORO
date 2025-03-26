@@ -4,8 +4,7 @@
     android:id="@+id/gps_list_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:background="@color/toolbarBackground"
+    android:animateLayoutChanges="true"    android:background="@color/toolbarBackground"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:overScrollMode="always"
@@ -263,8 +262,7 @@
                 android:textSize="@dimen/info_text_primary_size"
                 app:layout_constraintBottom_toTopOf="@+id/gps_target_displacement"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/gps_target_data"
@@ -282,6 +280,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView9" />
 
+            <!-- UTM Coordinates Display -->
+            <TextView
+                android:id="@+id/utm_easting"
+                style="@style/SecondaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/info_text_item_margin_horizontal"
+                android:layout_marginVertical="@dimen/info_text_item_margin_vertical"
+                android:maxLines="1"
+                android:text="@string/utm_easting"
+                android:textSize="@dimen/info_text_secondary_size" />
+
+            <TextView
+                android:id="@+id/utm_northing"
+                style="@style/SecondaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/info_text_item_margin_horizontal"
+                android:layout_marginVertical="@dimen/info_text_item_margin_vertical"
+                android:maxLines="1"
+                android:text="@string/utm_northing"
+                android:textSize="@dimen/info_text_secondary_size" />
+
+            <TextView
+                android:id="@+id/utm_zone"
+                style="@style/SecondaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/info_text_item_margin_horizontal"                android:layout_marginVertical="@dimen/info_text_item_margin_vertical"
+                android:maxLines="1"
+                android:text="@string/utm_zone"
+                android:textSize="@dimen/info_text_secondary_size" />
+
         </app.simple.positional.decorations.ripple.DynamicRippleLinearLayout>
 
         <app.simple.positional.decorations.ripple.DynamicRippleLinearLayout
@@ -293,9 +324,7 @@
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical"
-            android:padding="10dp">
-
-            <TextView
+            android:padding="10dp">            <TextView
                 android:id="@+id/coordinates"
                 style="@style/PrimaryTextView"
                 android:layout_width="match_parent"

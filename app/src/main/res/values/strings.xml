@@ -349,4 +349,7 @@
     <string name="measure">Measure</string>
     <string name="name">Name</string>
     <string name="saved_measures">Saved Measures</string>
+    <string name="utm_easting">UTM Easting: %s</string>
+    <string name="utm_northing">UTM Northing: %s</string>
+    <string name="utm_zone">UTM Zone: %s</string>
 </resources>
