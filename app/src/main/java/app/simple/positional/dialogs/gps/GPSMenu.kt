@@ -17,6 +17,7 @@ import app.simple.positional.preferences.GPSPreferences
 class GPSMenu : CustomBottomSheetDialogFragment() {
 
     private lateinit var toggleLabel: SwitchView
+    private lateinit var toggleSavedLocations: SwitchView
     private lateinit var toggleBuilding: SwitchView
     private lateinit var toggleTraffic: SwitchView
     private lateinit var toggleSatellite: SwitchView
@@ -25,6 +26,7 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
     private lateinit var togglePinCustomization: DynamicRippleTextView
 
     private lateinit var toggleLabelContainer: DynamicRippleLinearLayout
+    private lateinit var toggleSavedLocationsContainer: DynamicRippleLinearLayout
     private lateinit var toggleBuildingContainer: DynamicRippleLinearLayout
     private lateinit var toggleTrafficContainer: DynamicRippleLinearLayout
     private lateinit var toggleSatelliteContainer: DynamicRippleLinearLayout
@@ -35,6 +37,7 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
         val view = inflater.inflate(R.layout.dialog_gps_menu, container, false)
 
         toggleLabel = view.findViewById(R.id.toggle_label)
+        toggleSavedLocations = view.findViewById(R.id.toggle_saved_locations)
         toggleBuilding = view.findViewById(R.id.toggle_buildings)
         toggleTraffic = view.findViewById(R.id.toggle_traffic)
         toggleSatellite = view.findViewById(R.id.toggle_satellite)
@@ -43,6 +46,7 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
         togglePinCustomization = view.findViewById(R.id.gps_pin_customization)
 
         toggleLabelContainer = view.findViewById(R.id.gps_menu_show_label_container)
+        toggleSavedLocationsContainer = view.findViewById(R.id.gps_menu_show_saved_locations_container)
         toggleBuildingContainer = view.findViewById(R.id.gps_menu_show_building_container)
         toggleTrafficContainer = view.findViewById(R.id.gps_menu_traffic_container)
         toggleSatelliteContainer = view.findViewById(R.id.gps_menu_satellite_mode_container)
@@ -57,6 +61,7 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         toggleLabel.isChecked = GPSPreferences.isLabelOn()
+        toggleSavedLocations.isChecked = GPSPreferences.getShowSavedLocations()
         toggleBuilding.isChecked = GPSPreferences.getShowBuildingsOnMap()
         toggleTraffic.isChecked = GPSPreferences.isTrafficShown()
         toggleSatellite.isChecked = GPSPreferences.isSatelliteOn()
@@ -65,6 +70,10 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
 
         toggleLabel.setOnCheckedChangeListener { isChecked ->
             GPSPreferences.setLabelMode(isChecked)
+        }
+        
+         toggleSavedLocations.setOnCheckedChangeListener { isChecked ->
+            GPSPreferences.setShowSavedLocations(isChecked)
         }
 
         toggleSatellite.setOnCheckedChangeListener { isChecked ->
@@ -100,6 +109,10 @@ class GPSMenu : CustomBottomSheetDialogFragment() {
 
         toggleLabelContainer.setOnClickListener {
             toggleLabel.invertCheckedStatus()
+        }
+
+        toggleSavedLocationsContainer.setOnClickListener {
+            toggleSavedLocations.invertCheckedStatus()
         }
 
         toggleSatelliteContainer.setOnClickListener {
